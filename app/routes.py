@@ -29,7 +29,7 @@ def register():
         username = form.username.data
         email = form.email.data
         password = bcrypt.generate_password_hash(form.password.data)
-        print(username, email, password)
+        # print(username, email, password)
 
         user = User(username=username, password=password, email=email)
         db.session.add(user)
