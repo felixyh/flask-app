@@ -1,0 +1,20 @@
+<!-- 模板的继承，用extends -->
+{% extends "base.html" %}
+{% block title %}
+  {% if title %}
+    {{ title }} | Flask App
+  {% else %}
+    Flask App
+  {% endif %}
+{% endblock %}
+
+
+{% block app_content %}
+  <h1>Hello, Bootstrap</h1>
+  <hr>
+
+  <!-- for loop to display list+dic -->
+  {% for content in data %}
+    <h3>name: {{ content['user'] }} </h3>
+  {% endfor %}
+{% endblock %}
