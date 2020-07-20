@@ -1,13 +1,11 @@
 flask
 flask-bootstrap
-    # install: # pip install flask_bookstrap
-    # usage: 
-    #     from flask_bootstrap import Bootstrap
-    #     bootstrap = Bootstrap(app)
 flask-sqlalchemy
 flask-wtf
 wtforms
 email_validator
 flask-bcrypt
 flask-login
+PyJWT
+
 

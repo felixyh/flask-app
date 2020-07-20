@@ -6,11 +6,10 @@ from flask_login import login_required
 from flask_login import current_user
 from flask_login import logout_user
 
-from app.forms import LoginForm
 
-
-from app.forms import RegisterForm
 from app.models import User
+
+from app.forms import RegisterForm, LoginForm, PasswordResetRequestForm
 
 
 @app.route('/')
@@ -46,6 +45,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         flash('congrats, registration success', category='success')
+        return redirect(url_for('login'))
     return render_template('register.html', form=form)
 
 
@@ -78,3 +78,11 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+
+@app.route('/send_password_reset_request', methods=['GET', 'POST'])
+def send_password_reset_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = PasswordResetRequestForm()
+    return render_template('send_password_reset_request.html', form=form)
