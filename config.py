@@ -16,3 +16,10 @@ class Config(object):
     # Database configuration
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+    # Falsk Mail config
+    MAIL_SERVER = 'smtp.lovexiaoxiaomi.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or 'MAIL_USERNAME'
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or 'MAIL_PASSWORD'

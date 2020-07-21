@@ -6,6 +6,5 @@ wtforms
 email_validator
 flask-bcrypt
 flask-login
+flask-mail
 PyJWT
-
-
