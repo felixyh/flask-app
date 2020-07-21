@@ -10,25 +10,27 @@ from flask_login import logout_user
 from app.models import User
 from app.email import send_reset_password_mail
 
-from app.forms import RegisterForm, LoginForm, PasswordResetRequestForm, ResetPasswordForm
+from app.forms import RegisterForm, LoginForm, PasswordResetRequestForm, ResetPasswordForm, PostTweetForm
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
-    pragraphs = [
-        {
-            'user': "Felix",
-            'age': 15,
-            'role': "engineer",
-        },
-        {
-            'user': "zhanghui",
-            'age': 15,
-            'role': "UI test",
-        }
-    ]
-    return render_template('index.html', title='home', data=pragraphs)
+    # pragraphs = [
+    #     {
+    #         'user': "Felix",
+    #         'age': 15,
+    #         'role': "engineer",
+    #     },
+    #     {
+    #         'user': "zhanghui",
+    #         'age': 15,
+    #         'role': "UI test",
+    #     }
+    # ]
+    form = PostTweetForm()
+
+    return render_template('index.html', title='home', form=form)
 
 
 @app.route('/register', methods=['GET', 'POST'])

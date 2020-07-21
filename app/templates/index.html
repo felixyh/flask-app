@@ -14,7 +14,14 @@
   <hr>
 
   <!-- for loop to display list+dic -->
-  {% for content in data %}
-    <h3>name: {{ content['user'] }} </h3>
-  {% endfor %}
+<!--  {% for content in data %}-->
+<!--    <h3>name: {{ content['user'] }} </h3>-->
+<!--  {% endfor %}-->
+
+  <div class="row">
+    <div class="col-md-6">
+        {% import 'bootstrap/wtf.html' as wtf %}
+        {{ wtf.quick_form(form) }}
+    </div>
+  </div>
 {% endblock %}

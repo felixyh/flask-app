@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm, RecaptchaField
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 
 from app.models import User
@@ -47,3 +47,9 @@ class ResetPasswordForm(FlaskForm):
     password = PasswordField('New Password', validators=[DataRequired(), Length(min=8, max=20)])
     confirm = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Reset Password')
+
+
+class PostTweetForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired(), Length(min=1, max=30)])
+    text = TextAreaField('Say something...', validators=[DataRequired(), Length(min=1, max=140)])
+    submit = SubmitField('Post Text')
